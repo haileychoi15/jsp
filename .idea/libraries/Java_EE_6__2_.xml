@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Java EE 6 (2)">
+    <CLASSES>
+      <root url="jar:///usr/local/Cellar/tomcat/9.0.34/libexec/lib/servlet-api.jar!/" />
+      <root url="jar:///usr/local/Cellar/tomcat/9.0.34/libexec/lib/jsp-api.jar!/" />
+      <root url="jar:///usr/local/Cellar/tomcat/9.0.34/libexec/lib/jstl-1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
