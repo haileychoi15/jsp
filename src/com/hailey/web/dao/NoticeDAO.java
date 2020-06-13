@@ -1,4 +1,4 @@
-package com.hailey.web.service;
+package com.hailey.web.dao;
 
 import com.hailey.web.entity.Notice;
 import com.hailey.web.entity.NoticeView;
@@ -8,11 +8,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class NoticeService {
+public class NoticeDAO {
 
     // 이름이 중복되는 함수는 기능이 같다는 것을 의미하고 코드중복을 줄이기 위해 파라미터가 가장 많은 함수를
     // 파라미터가 적은 함수에서 리턴해와서 코드를 재사용한다.
     String url = "jdbc:oracle:thin:@localhost:1521/xe";
+
+
+
+
+
 
     // 관리자가 글 일괄 삭제하기
     public int removeNoticeAll(int[] boardnos){ // 몇 개가 삭제되었는지 개수를 반환

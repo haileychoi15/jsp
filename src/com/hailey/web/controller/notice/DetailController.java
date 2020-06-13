@@ -1,7 +1,7 @@
 package com.hailey.web.controller.notice;
 
 import com.hailey.web.entity.Notice;
-import com.hailey.web.service.NoticeService;
+import com.hailey.web.dao.NoticeDAO;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,7 +18,7 @@ public class DetailController extends HttpServlet {
 
         int boardno = Integer.parseInt(request.getParameter("id"));
 
-        NoticeService service = new NoticeService();
+        NoticeDAO service = new NoticeDAO();
         Notice notice = service.getNotice(boardno);
         request.setAttribute("n", notice);
 

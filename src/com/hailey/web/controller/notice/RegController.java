@@ -1,7 +1,7 @@
 package com.hailey.web.controller.notice;
 
 import com.hailey.web.entity.Notice;
-import com.hailey.web.service.NoticeService;
+import com.hailey.web.dao.NoticeDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -97,7 +97,7 @@ public class RegController extends HttpServlet {
         notice.setUserid("zzia");
         notice.setFiles(builder.toString());
 
-        NoticeService service = new NoticeService();
+        NoticeDAO service = new NoticeDAO();
         int result = service.insertNotice(notice);
 
         //insert 하고 나서 목록페이지로 이동

@@ -1,7 +1,7 @@
 package com.hailey.web.controller.admin.notice;
 
 import com.hailey.web.entity.NoticeView;
-import com.hailey.web.service.NoticeService;
+import com.hailey.web.dao.NoticeDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,7 +30,7 @@ public class ListController extends HttpServlet {
         String boardno_ = request.getParameter("boardnos"); // 모든 boardno값을 가져온다.
         String[] boardnos = boardno_.trim().split(" "); // 배열 형태로 만든다.
 
-        NoticeService service = new NoticeService();
+        NoticeDAO service = new NoticeDAO();
 
         switch (cmd){
 
@@ -105,7 +105,7 @@ public class ListController extends HttpServlet {
 
         // NoticeDetailController에서는 notice객체가 하나만 필요했지만 여기서는 항목이 여러개이기 때문에 여러 개(list) 필요
 
-        NoticeService service = new NoticeService();
+        NoticeDAO service = new NoticeDAO();
         List<NoticeView> list = service.getNoticeList(field, query, page);
         // 데이터베이스에서 레코드 개수 알아오기
         int recordCount = service.getNoticeCount(field, query); // 검색할 경우 또 페이지 개수가 달라지므로

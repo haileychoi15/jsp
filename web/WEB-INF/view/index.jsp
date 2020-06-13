@@ -56,9 +56,9 @@
         <nav id="acount-menu">
           <h1 class="hidden">회원메뉴</h1>
           <ul>
-            <li><a href="/WEB-INF/view/index.html">HOME</a></li>
-            <li><a href="/member/login.html">로그인</a></li>
-            <li><a href="/member/agree.html">회원가입</a></li>
+            <li><a href="/index">HOME</a></li>
+            <li><a href="/member/login">로그인</a></li>
+            <li><a href="/member/agree">회원가입</a></li>
           </ul>
         </nav>
 
@@ -96,15 +96,15 @@
 
       <li class="banner1">
         <a href="customer/event/1">
+<%--
           <img src="admin/board/event/1/banner-java.png" data-id="1" style="cursor: pointer;" />
+--%>
         </a>
       </li>
 
     </ul>
 
-
-
-    <ul class="banner-button-list" style="color:#ffff00; font-size:20px;position:absolute; left:10px; bottom:5px; z-index: 100px; display: flex; flex-direction: row;">
+    <ul class="banner-button-list" style="color:#ffff00; font-size:20px;position:absolute; left:10px; bottom:5px; z-index: 50; display: flex; flex-direction: row;">
       <li></li>
     </ul>
 
