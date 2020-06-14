@@ -14,11 +14,6 @@ public class NoticeDAO {
     // 파라미터가 적은 함수에서 리턴해와서 코드를 재사용한다.
     String url = "jdbc:oracle:thin:@localhost:1521/xe";
 
-
-
-
-
-
     // 관리자가 글 일괄 삭제하기
     public int removeNoticeAll(int[] boardnos){ // 몇 개가 삭제되었는지 개수를 반환
         return 0;
