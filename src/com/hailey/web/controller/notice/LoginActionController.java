@@ -30,6 +30,7 @@ public class LoginActionController extends HttpServlet {
         MemberDAO memberDAO = new MemberDAO();
         int result = memberDAO.login(userid, passwd);
 
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter script = response.getWriter();
 
         switch (result){
@@ -40,7 +41,6 @@ public class LoginActionController extends HttpServlet {
 
             case 0 : // 비밀번호 불일치
 
-                // alert 한글 깨짐
                 script.println("<script>");
                 script.println("alert('비밀번호가 일치하지 않습니다.');");
                 script.println("history.back();");
