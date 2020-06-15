@@ -1,5 +1,7 @@
 package com.hailey.web.dao;
 
+import com.hailey.web.entity.Member;
+
 import java.sql.*;
 
 public class MemberDAO {
@@ -24,7 +26,7 @@ public class MemberDAO {
     }
 
 
-    // 로그인 매소드
+    // 로그인
     public int login(String userid, String passwd) {
 
         ResultSet rs;
@@ -55,5 +57,33 @@ public class MemberDAO {
         return -2; //데이터 베이스 오류
     }
 
-    // 회원가입 매소드
+    // 회원가입
+    public int join(Member member) {
+
+        String sql = "insert into jdbc_member\n" +
+                "values (user_seq.nextval, ?, ?, ?, ?, 0, sysdate, 1, ?, ?, ?)\n" +
+                "\n";
+
+        try {
+
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, member.getUserid());
+            pstmt.setString(2, member.getPasswd());
+            pstmt.setString(3, member.getName());
+            pstmt.setString(4, member.getMobile());
+            pstmt.setString(5, member.getGender());
+            pstmt.setString(6, member.getEmail());
+            pstmt.setString(7, member.getBirthday());
+
+            return pstmt.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return -1; //데이터베이스 오류
+
+    }
+
+
 }

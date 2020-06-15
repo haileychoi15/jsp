@@ -7,8 +7,29 @@ public class Member {
     private String name;
     private String mobile;
     private int point;
-    private String registerday;
     private int status;
+    private String email;
+    private String birthday;
+    private String gender;
+
+    //기본 생성자
+    public Member(){
+
+    }
+
+    // 오버로드 생성자
+    public Member(String userid, String passwd, String name, String mobile, int point, int status, String email, String birthday, String gender) {
+        this.userid = userid;
+        this.passwd = passwd;
+        this.name = name;
+        this.mobile = mobile;
+        this.point = point;
+        this.status = status;
+        this.email = email;
+        this.birthday = birthday;
+        this.gender = gender;
+    }
+
 
     public String getUserid() {
         return userid;
@@ -50,14 +71,6 @@ public class Member {
         this.point = point;
     }
 
-    public String getRegisterday() {
-        return registerday;
-    }
-
-    public void setRegisterday(String registerday) {
-        this.registerday = registerday;
-    }
-
     public int getStatus() {
         return status;
     }
@@ -66,5 +79,28 @@ public class Member {
         this.status = status;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
 }

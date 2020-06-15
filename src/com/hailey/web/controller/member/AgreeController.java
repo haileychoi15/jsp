@@ -1,4 +1,4 @@
-package com.hailey.web.controller.notice;
+package com.hailey.web.controller.member;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

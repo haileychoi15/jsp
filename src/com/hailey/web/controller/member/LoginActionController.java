@@ -1,4 +1,4 @@
-package com.hailey.web.controller.notice;
+package com.hailey.web.controller.member;
 import com.hailey.web.dao.MemberDAO;
 
 import javax.servlet.ServletException;
