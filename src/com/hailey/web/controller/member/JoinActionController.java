@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -43,20 +42,16 @@ public class JoinActionController extends HttpServlet {
         else
             gender = "남";
 
+        Member member = new Member(userid, passwd, name, mobile, 0, "", 1, email, birthday, gender);
 
-   /*     // jsp에서 쓸 수 있게 보내기
-        Member member = new Member(userid, passwd, name, mobile, 0, 1, email, birthday, gender);
-        request.setAttribute("member", member);
-   */
-
-        Member member  = new Member();
+/*        Member member  = new Member();
         member.setUserid(userid);
         member.setPasswd(passwd);
         member.setName(name);
         member.setMobile(mobile);
         member.setGender(gender);
         member.setEmail(email);
-        member.setBirthday(birthday);
+        member.setBirthday(birthday);*/
 
         MemberDAO memberDAO = new MemberDAO();
         int result = memberDAO.join(member);
@@ -65,8 +60,7 @@ public class JoinActionController extends HttpServlet {
         PrintWriter script = response.getWriter();
 
         if(result == 1){ //회원가입 성공
-            HttpSession session = request.getSession();
-            session.setAttribute("userid", member.getUserid());            script.println("<script>");
+            script.println("<script>");
             script.println("alert('회원가입이 완료되었습니다.');");
             script.println("location.href = '../index';");
             script.println("</script>");

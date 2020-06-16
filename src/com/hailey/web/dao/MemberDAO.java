@@ -27,34 +27,49 @@ public class MemberDAO {
 
 
     // 로그인
-    public int login(String userid, String passwd) {
+    public Member login(String userid, String passwd) {
 
         ResultSet rs;
+        Member loginUser = new Member();
+        // loginUser = null; 이렇게 하면 안되네
 
-        String sql = "select passwd from jdbc_member\n" +
-                "where userid = ? and status = 1";
+        String sql = "select userid, passwd, name, mobile, point, to_char(registerday,'yyyy-MM-dd') as registerday" +
+                ", gender, email, birthday " +
+                " from jdbc_member\n" +
+                " where userid = ? and passwd = ? and status = 1";
 
         try {
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, userid);
+            pstmt.setString(2, passwd);
             rs = pstmt.executeQuery();
 
             if(rs.next()){
 
-                System.out.println(rs.getString(1));
-                System.out.println(passwd);
+                loginUser.setUserid(rs.getString(1));
+                loginUser.setPasswd(rs.getString(2));
+                loginUser.setName(rs.getString(3));
+                loginUser.setMobile(rs.getString(4));
+                loginUser.setPoint(rs.getInt(5));
+                loginUser.setRegisterday(rs.getString(6));
+                loginUser.setGender(rs.getString(7));
 
-                if(rs.getString(1).equals(passwd))
-                    return 1; //로그인 성공
-                else
-                    return 0; // 비밀번호 불일치
+                // 값이 없을 수도 있는 데이터
+                if(rs.getString(8) != null)
+                    loginUser.setEmail(rs.getString(8));
+                if(rs.getString(9) != null)
+                    loginUser.setBirthday(rs.getString(9));
+
+
+                return loginUser; //로그인 성공
+
             }
-            return -1; //아이디가 없음
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return -2; //데이터 베이스 오류
+
+        return null; // 로그인 실패
     }
 
     // 회원가입

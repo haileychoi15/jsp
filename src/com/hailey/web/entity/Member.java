@@ -7,6 +7,7 @@ public class Member {
     private String name;
     private String mobile;
     private int point;
+    private String registerday;
     private int status;
     private String email;
     private String birthday;
@@ -18,12 +19,13 @@ public class Member {
     }
 
     // 오버로드 생성자
-    public Member(String userid, String passwd, String name, String mobile, int point, int status, String email, String birthday, String gender) {
+    public Member(String userid, String passwd, String name, String mobile, int point, String registerday, int status, String email, String birthday, String gender) {
         this.userid = userid;
         this.passwd = passwd;
         this.name = name;
         this.mobile = mobile;
         this.point = point;
+        this.registerday = registerday;
         this.status = status;
         this.email = email;
         this.birthday = birthday;
@@ -69,6 +71,14 @@ public class Member {
 
     public void setPoint(int point) {
         this.point = point;
+    }
+
+    public String getRegisterday() {
+        return registerday;
+    }
+
+    public void setRegisterday(String registerday) {
+        this.registerday = registerday;
     }
 
     public int getStatus() {

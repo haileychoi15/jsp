@@ -11,9 +11,6 @@ public class Notice {
     private int viewcount;
     private String files;
     private String contents;
-
-
-
     private boolean pub;
 
     // 기본 생성자
@@ -33,6 +30,8 @@ public class Notice {
         this.pub = pub;
 
     }
+
+
 
     public int getBoardno() {
         return boardno;
