@@ -1,11 +1,14 @@
 package com.hailey.web.controller.member;
+
 import com.hailey.web.dao.MemberDAO;
+import com.hailey.web.entity.Member;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -37,6 +40,9 @@ public class LoginActionController extends HttpServlet {
 
             case 1 : //로그인 성공
                 response.sendRedirect("/notice/list");
+                HttpSession session = request.getSession();
+                Member member = new Member();
+                session.setAttribute("userid", userid);
                 break;
 
             case 0 : // 비밀번호 불일치

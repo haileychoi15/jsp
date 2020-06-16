@@ -5,6 +5,6 @@
 
     </head>
     <body>
-login
+        logout
     </body>
 </html>

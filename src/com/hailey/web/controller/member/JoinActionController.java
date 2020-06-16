@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -64,7 +65,8 @@ public class JoinActionController extends HttpServlet {
         PrintWriter script = response.getWriter();
 
         if(result == 1){ //회원가입 성공
-            script.println("<script>");
+            HttpSession session = request.getSession();
+            session.setAttribute("userid", member.getUserid());            script.println("<script>");
             script.println("alert('회원가입이 완료되었습니다.');");
             script.println("location.href = '../index';");
             script.println("</script>");

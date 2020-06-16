@@ -71,10 +71,15 @@
 
                     <nav id="acount-menu">
                         <h1 class="hidden">회원메뉴</h1>
-                        <ul>
-                            <li><a href="/index">HOME</a></li>
-                            <li><a href="/member/login">로그인</a></li>
-                            <li><a href="/member/agree">회원가입</a></li>
+						<c:out value="${sessionScope.userid}"></c:out>
+						<ul>
+							<c:if test="${sessionScope.userid == null}">
+								<li><a href="/member/login">로그인</a></li>
+								<li><a href="/member/agree">회원가입</a></li>
+							</c:if>
+							<c:if test="${sessionScope.userid != null}">
+								<li><a href="/member/logoutAction">로그아웃</a></li>
+							</c:if>
                         </ul>
                     </nav>
 
