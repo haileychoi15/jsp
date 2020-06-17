@@ -1,4 +1,4 @@
-package com.hailey.web;
+package example;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,8 +8,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-@WebServlet("/calc")
-public class Post extends HttpServlet {
+@WebServlet("/array")
+public class Array extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -24,23 +24,20 @@ public class Post extends HttpServlet {
 
         PrintWriter out = response.getWriter();
 
-        String x_ = request.getParameter("x");
-        String y_ = request.getParameter("y");
-        String op = request.getParameter("operator"); // 누른 것에 따라서 value값이 들어옴
+        String[] numArr = request.getParameterValues("num");
         // 쿼리스트링으로 요청해서 getParameter로 들어오는 값은 무조건 String type
 
-        if(x_.equals("") || y_.equals("")) {
-            out.println("두 개의 값을 입력해주세요.");
+        int result = 0;
+        for(int i=0; i<numArr.length; i++){
+
+            if(!numArr[i].equals("")) {
+                int num = Integer.parseInt(numArr[i]);
+                // 연산은 반복되지만 선언은 반복될 일이 없다.
+                result += num;
+            }
         }
-        else {
+            out.println(result);
 
-            int x = Integer.parseInt(x_);
-            int y = Integer.parseInt(y_);
-
-            if(op.equals("덧셈")) out.println(x+y);
-            else out.println(x-y);
-
-        }
     }
 }
 

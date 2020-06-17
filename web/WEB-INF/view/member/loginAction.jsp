@@ -2,9 +2,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <title>loginAction</title>
     </head>
     <body>
-login
     </body>
 </html>

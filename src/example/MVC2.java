@@ -1,4 +1,4 @@
-package com.hailey.web;
+package example;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
