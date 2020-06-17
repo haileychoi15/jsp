@@ -34,7 +34,7 @@ public class MemberDAO {
         // loginUser = null; 이렇게 하면 안되네
 
         String sql = "select userid, passwd, name, mobile, point, to_char(registerday,'yyyy-MM-dd') as registerday" +
-                ", gender, email, birthday " +
+                ", gender, email, to_char(birthday,'yyyy-MM-dd') as birthday " +
                 " from jdbc_member\n" +
                 " where userid = ? and passwd = ? and status = 1";
 
