@@ -1,13 +1,15 @@
 package com.hailey.web.controller.notice;
 
-import com.hailey.web.entity.NoticeView;
 import com.hailey.web.dao.NoticeDAO;
+import com.hailey.web.entity.Member;
+import com.hailey.web.entity.NoticeView;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -48,11 +50,15 @@ public class ListController extends HttpServlet {
         request.setAttribute("recordCount", recordCount);
         request.setAttribute("commentMap", commentMap);
 
+        HttpSession session = request.getSession();
+        Member loginUser = (Member) session.getAttribute("loginUser");
 
-        //forward
-        request.getRequestDispatcher("/WEB-INF/view/notice/list.jsp").forward(request, response);
-        // view단인 /WEB-INF/view/notice/list.jsp 에서 톰캣 실행하지 않도록 따로 뺐다.
+        if(loginUser != null) {
 
+            //forward
+            request.getRequestDispatcher("/WEB-INF/view/notice/list.jsp").forward(request, response);
+            // view단인 /WEB-INF/view/notice/list.jsp 에서 톰캣 실행하지 않도록 따로 뺐다.
+        }
 
     }
 }
