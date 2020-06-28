@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collection;
 
-// from 에서 enctype="multipart/form-data으로 인코딩 하니까 값이 잘 전달되지 않는다.
 @MultipartConfig(
         fileSizeThreshold = 1024*1024, // 저장공간
         maxFileSize = 1024*1024*50, // 하나의 파일 사이즈
@@ -43,6 +42,7 @@ public class RegController extends HttpServlet {
             throws ServletException, IOException {
 
         String subject = request.getParameter("subject");
+        System.out.println(subject);
         String content = request.getParameter("content");
         String isOpen = request.getParameter("open");
 
